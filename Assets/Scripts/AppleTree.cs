@@ -41,7 +41,17 @@ public class AppleTree : MonoBehaviour
         } else if(pos.x > leftAndRightEdge)
         {
             speed = -Mathf.Abs(speed); // Move left
-        } 
+        }
+
+        // Speed up AppleTree movement as time goes on
+        speed *= 1.0005f;
+
+        // Speed up Apple drops as time goes on
+        if (secondsBetweenAppleDrops > 0.32f)
+        {
+            secondsBetweenAppleDrops -= .0005f;
+        }
+        
     }
 
     void FixedUpdate()

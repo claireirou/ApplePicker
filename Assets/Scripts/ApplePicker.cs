@@ -37,11 +37,8 @@ public class ApplePicker : MonoBehaviour
             Destroy(tGO);
         }
 
-        // Destroy one of the baskets
-        
-        // Remove bottom-most basket
+        // Destroy bottom-most basket
         GameObject tBasketGO = basketList[0];
-
         // Remove the Basket from the list and destroy the GameObject
         basketList.RemoveAt(0);
         Destroy(tBasketGO);
