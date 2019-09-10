@@ -212,6 +212,7 @@ MonoBehaviour:
   numBaskets: 3
   basketBottomY: -14
   basketSpacingY: 2
+  basketList: []
 --- !u!1 &1036025631
 GameObject:
   m_ObjectHideFlags: 0
