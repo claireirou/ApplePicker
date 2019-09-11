@@ -11,7 +11,6 @@ public class ApplePicker : MonoBehaviour
     public float basketBottomY = -14f;
     public float basketSpacingY = 2f;
     public List<GameObject> basketList;
-    private Rigidbody rd;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +29,7 @@ public class ApplePicker : MonoBehaviour
 
     public void AppleDestroyed()
     {
-        // Destroy all of the falling apples
+        // Destroy the falling apples but not the exploding one
         GameObject[] tAppleArray = GameObject.FindGameObjectsWithTag("Apple");
 
         foreach (GameObject tGO in tAppleArray)

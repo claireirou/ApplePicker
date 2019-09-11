@@ -15,31 +15,33 @@ public class Apple : MonoBehaviour
     {
      if(transform.position.y < bottomY)
         {
-            
-
-            rend = GetComponent<Renderer>();
-            rend.enabled = false;
-            Explode();
-
-
             // Get a reference to the ApplePicker component of Main Camera
             ApplePicker apScript = Camera.main.GetComponent<ApplePicker>();
-            // Call the public AppleDestroyed method of apScript
-            apScript.AppleDestroyed();
+
+            rend = GetComponent<Renderer>();
+            exp = GetComponent<ParticleSystem>();
+
+            // Play particle system
+            if (!exp.isPlaying)
+            {
+                // There is no particle system playing
+
+                if (rend.enabled)
+                {
+                    // This is the first frame this apple is at bottomY
+                    rend.enabled = false;
+                } else
+                {
+                    // Particle system is done playing, destroy apple.
+                    Destroy(this);
+                }
+
+                exp.Play();
+
+                // Call the public AppleDestroyed method of apScript
+                apScript.AppleDestroyed();
+            }
+              
         }   
-    }
-
-    void Explode()
-    {
-        exp = GetComponent<ParticleSystem>();
-        //  play particle system
-        if (!exp.isPlaying)
-        {
-            exp.Play();
-            
-        }
-
-        // TODO wait to return until particle system is done playing??
-        
     }
 }
