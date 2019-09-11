@@ -11,6 +11,7 @@ public class ApplePicker : MonoBehaviour
     public float basketBottomY = -14f;
     public float basketSpacingY = 2f;
     public List<GameObject> basketList;
+    private Rigidbody rd;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +35,11 @@ public class ApplePicker : MonoBehaviour
 
         foreach (GameObject tGO in tAppleArray)
         {
-            Destroy(tGO);
+            if(tGO.transform.position.y > -15)
+            {
+                Destroy(tGO);
+            }
+            
         }
 
         // Destroy bottom-most basket

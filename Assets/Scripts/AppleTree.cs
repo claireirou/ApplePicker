@@ -23,7 +23,7 @@ public class AppleTree : MonoBehaviour
     void Start()
     {
         //Dropping apples every second
-        Invoke("DropApple", 2f);
+        Invoke("DropApple", 1f);
     }
 
     // Update is called once per frame
